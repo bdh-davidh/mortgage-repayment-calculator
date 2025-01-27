@@ -1,1 +1,254 @@
-/* You can add global styles to this file, and also import other style files */
+/* RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+button {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+/* Adjust line heights */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 0.9;
+}
+
+/* Remove list styles on ul, ol elements with a class */
+:where(ul[role="list"]),
+:where(ol[role="list"]) {
+  padding-inline: 0;
+  list-style-type: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-inline-size: 100%;
+}
+
+/* Preserve aspect ratio */
+img[width][height] {
+  block-size: auto;
+}
+
+/* Let SVG scale without boundaries */
+img[src$=".svg"] {
+  max-inline-size: 100%;
+  max-inline-size: none;
+  block-size: auto;
+}
+
+/* Remove all default button styles */
+button {
+  all: unset;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  overflow-wrap: break-word;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Add space for anchor links */
+[id] {
+  scroll-margin-top: 2ex;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ABSTRACTS */
+
+:root {
+  /* Standard sizes */
+  --space-3xs: clamp(0.25rem, calc(0.25rem + 0vw), 0.25rem);
+  --space-2xs: clamp(0.5rem, calc(0.5rem + 0vw), 0.5rem);
+  --space-xs: clamp(0.69rem, calc(0.67rem + 0.09vw), 0.75rem);
+  --space-s: clamp(0.94rem, calc(0.92rem + 0.09vw), 1rem);
+  --space-m: clamp(1.44rem, calc(1.42rem + 0.09vw), 1.5rem);
+  --space-l: clamp(1.88rem, calc(1.83rem + 0.19vw), 2rem);
+  --space-xl: clamp(2.81rem, calc(2.75rem + 0.28vw), 3rem);
+  --space-2xl: clamp(3.75rem, calc(3.66rem + 0.38vw), 4rem);
+  --space-3xl: clamp(5.63rem, calc(5.49rem + 0.56vw), 6rem);
+
+  /* Font-sizes */
+  --font-size-0: clamp(0.94rem, calc(0.92rem + 0.09vw), 1rem);
+  --font-size-1: clamp(1.17rem, calc(1.12rem + 0.24vw), 1.33rem);
+  --font-size-2: clamp(1.47rem, calc(1.36rem + 0.47vw), 1.78rem);
+  --font-size-3: clamp(1.83rem, calc(1.64rem + 0.81vw), 2.37rem);
+  --font-size-4: clamp(2.29rem, calc(1.98rem + 1.31vw), 3.16rem);
+
+  /* Colors */
+
+  --clr-error: #d73328;
+  --clr-accent: #d8db2f;
+  --clr-white: #fff;
+  --clr-blk: #000;
+  --clr-neutral-000: #fff;
+  --clr-neutral-100: #e4f4fd;
+  --clr-neutral-300: #9abed5;
+  --clr-neutral-500: #6b94a8;
+  --clr-neutral-700: #4e6e7e;
+  --clr-neutral-900: #133041;
+
+  /* Shadows */
+  --shadow-color: 13deg 17% 44%;
+  --shadow-elevation-low: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 34%),
+    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 34%),
+    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 34%);
+  --shadow-elevation-medium: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 36%),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 36%),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 36%),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 36%);
+  --shadow-elevation-high: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 34%),
+    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 34%),
+    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 34%),
+    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 34%),
+    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 34%),
+    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 34%),
+    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 34%),
+    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 34%);
+}
+
+/* GLOBAL STYLES  */
+
+@font-face {
+  font-family: Jakarta-Regular;
+  font-weight: 200 800;
+  src: url("../public/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf")
+    format("TrueType");
+}
+
+@font-face {
+  font-family: Jakarta-Italic;
+  font-weight: 200 800;
+  src: url("../public/assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf")
+    format("TrueType");
+}
+
+body {
+  --min: 0px;
+  --max: 900px;
+
+  position: relative;
+  display: grid;
+  min-block-size: 80vh;
+  margin-block: var(--space-xl);
+  grid-template-columns:
+    minmax(var(--space-m), 1fr) minmax(var(--min), var(--max))
+    minmax(var(--space-m), 1fr);
+  font-family: Jakarta-Regular, sans-serif;
+  font-size: var(--font-size-0);
+  font-weight: 400;
+  line-height: 1.4;
+  background-color: var(--clr-neutral-100);
+  text-wrap: pretty;
+
+  > * {
+    grid-column: 2;
+  }
+}
+
+:is(h1, h2, h3) {
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--font-size-3);
+}
+
+h2 {
+  font-size: var(--font-size-2);
+}
+
+h3 {
+  font-size: var(--font-size-0);
+  font-weight: 600;
+}
+
+:focus-visible {
+  opacity: 1 !important;
+  outline: 2px dashed var(--clr-neutral-900);
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: transparent;
+}
+
+/* UTILITIES */
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, var(--space-s, 1em));
+}
+
+.box {
+  padding-inline: var(--padding-inline, var(--space-l, 1em));
+  padding-block: var(--padding-block, var(--space-l, 1em));
+}
+
+.repel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}

@@ -1,0 +1,33 @@
+<div class="repel">
+  <h2>Mortgage Calculator</h2>
+  <button class="clear">Clear All</button>
+</div>
+<form class="flow">
+  <label for="amount">
+    Mortgage Amount
+    <input type="number" name="amount" id="amount" />
+  </label>
+  <label for="term">
+    Mortgage Term
+    <input type="number" name="term" id="term" />
+  </label>
+  <label for="rate">
+    Interest Rate
+    <input type="number" name="rate" id="rate" />
+  </label>
+
+<fieldset class="flow">
+  <legend>Mortgage Type</legend>
+  <label for="repayment" class="box"
+      >
+      <input type="radio" name="type" id="repayment" />
+      Repayment
+  </label>
+    <label for="interest" class="box"
+      >
+      <input type="radio" name="type" id="interest" />
+      Interest Only
+  </label>
+</fieldset>
+<button class="box">Calculate Repayments</button>
+</form>

@@ -1,0 +1,22 @@
+:host {
+  display: grid;
+  container-name: calculator;
+  container-type: inline-size;
+  place-items: center;
+}
+
+section {
+  display: flex;
+  inline-size: 100%;
+  border-radius: var(--space-s);
+  flex-direction: column;
+  background-color: var(--clr-neutral-000);
+
+  > * {
+    flex: 1;
+  }
+
+  @container calculator (min-width: 40rem) {
+    flex-direction: row;
+  }
+}
