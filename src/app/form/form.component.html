@@ -2,32 +2,40 @@
   <h2>Mortgage Calculator</h2>
   <button class="clear">Clear All</button>
 </div>
-<form class="flow">
+<form class="flow" #resultsForm="ngForm" (ngSubmit)="handleResultsFormSubmit()">
   <label for="amount">
     Mortgage Amount
-    <input type="number" name="amount" id="amount" />
+    <input type="number" name="amount" id="amount" [(ngModel)]="amount" />
   </label>
   <label for="term">
     Mortgage Term
-    <input type="number" name="term" id="term" />
+    <input type="number" name="term" id="term" [(ngModel)]="term" />
   </label>
   <label for="rate">
     Interest Rate
-    <input type="number" name="rate" id="rate" />
+    <input type="number" name="rate" id="rate" [(ngModel)]="rate" />
   </label>
 
-<fieldset class="flow">
-  <legend>Mortgage Type</legend>
-  <label for="repayment" class="box"
-      >
-      <input type="radio" name="type" id="repayment" />
+  <fieldset class="flow">
+    <legend>Mortgage Type</legend>
+    <label for="repayment" class="box">
+      <input
+        type="radio"
+        name="type"
+        id="repayment"
+        (click)="type = 'repayment'"
+      />
       Repayment
-  </label>
-    <label for="interest" class="box"
-      >
-      <input type="radio" name="type" id="interest" />
+    </label>
+    <label for="interest" class="box">
+      <input
+        type="radio"
+        name="type"
+        id="interest"
+        (click)="type = 'interest'"
+      />
       Interest Only
-  </label>
-</fieldset>
-<button class="box">Calculate Repayments</button>
+    </label>
+  </fieldset>
+  <button class="box">Calculate Repayments</button>
 </form>
